@@ -12,7 +12,8 @@ uint32_t FloatToBits(float value) {
 
 std::string FormatBits(float value) {
     std::bitset<32> bits(FloatToBits(value));
-    return bits.to_string();
+    std::string s = bits.to_string();
+    return s.substr(0, 1) + " " + s.substr(1, 8) + " " + s.substr(9, 23);
 }
 
 int main(int argc, char* argv[]) {
@@ -29,7 +30,6 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Loop bound bits: " << FormatBits(loop_bound) << std::endl;
     std::cout << "Loop counter bits: " << FormatBits(loop_counter) << std::endl;
-
 
     return 0;
 }
