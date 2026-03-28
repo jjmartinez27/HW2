@@ -43,30 +43,29 @@ float ComputeThreshold(float increment) {
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
+        std::cout << "usage: ./fp_overflow_checker loop_bound loop_counter" << std::endl;
         std::cout << std::endl;
-        std::cout << "Please include 2 command line arguments" << std::endl;
-        std::cout << "1: Loop bound, a positive floating-point value" << std::endl;
-        std::cout << "2: Loop counter, a positive floating-point value" << std::endl;
+        std::cout << "    loop_bound is a positive floating-point value" << std::endl;
+        std::cout << "    loop_counter is a positive floating-point value" << std::endl;
         return 1;
     }
 
     float loop_bound = std::stof(argv[1]);
     float loop_counter = std::stof(argv[2]);
 
-    std::cout << "Loop bound bits: " << FormatBits(loop_bound) << std::endl;
-    std::cout << "Loop counter bits: " << FormatBits(loop_counter) << std::endl;
+    std::cout << "Loop bound:   " << FormatBits(loop_bound) << std::endl;
+    std::cout << "Loop counter: " << FormatBits(loop_counter) << std::endl;
+    std::cout << std::endl;
 
     float threshold = ComputeThreshold(loop_counter);
 
     if (loop_bound >= threshold) {
-        std::cout << std::endl;
-        std::cout << "Possible overflow" << std::endl;
+        std::cout << "Warning: Possible overflow!" << std::endl;
         std::cout << "Overflow threshold:" << std::endl;
         std::cout << threshold << std::endl;
         std::cout << FormatBits(threshold) << std::endl;
     } else {
-        std::cout << std::endl;
-        std::cout << "No Possible Overflow" << std::endl;
+        std::cout << "There is no overflow!" << std::endl;
     }
 
     return 0;
