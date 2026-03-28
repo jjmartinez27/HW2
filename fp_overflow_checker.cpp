@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
 
     float loop_bound = std::stof(argv[1]);
     float loop_counter = std::stof(argv[2]);
-
+    std::cout << std::endl;
     std::cout << "Loop bound:   " << FormatBits(loop_bound) << std::endl;
     std::cout << "Loop counter: " << FormatBits(loop_counter) << std::endl;
     std::cout << std::endl;
