@@ -31,6 +31,16 @@ int GetUnbiasedExponent(float value) {
     return GetExponentBits(value) - 127;
 }
 
+float ComputeThreshold(float increment) {
+    int increment_exp = GetUnbiasedExponent(increment);
+    int threshold_exp = increment_exp + 24;
+
+    uint32_t threshold_bits =
+        static_cast<uint32_t>(threshold_exp + 127) << 23;
+
+    return BitsToFloat(threshold_bits);
+}
+
 int main(int argc, char* argv[]) {
     if (argc != 3) {
         std::cout << std::endl;
@@ -46,6 +56,10 @@ int main(int argc, char* argv[]) {
     std::cout << "Loop bound bits: " << FormatBits(loop_bound) << std::endl;
     std::cout << "Loop counter bits: " << FormatBits(loop_counter) << std::endl;
     std::cout << "Loop counter exponent: " << GetUnbiasedExponent(loop_counter) << std::endl;
+
+    float threshold = ComputeThreshold(loop_counter);
+    std::cout << "Threshold: " << threshold << std::endl;
+    std::cout << "Threshold bits: " << FormatBits(threshold) << std::endl;
 
     return 0;
 }
