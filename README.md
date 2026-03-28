@@ -12,6 +12,9 @@ The program takes two positive floating-point command-line arguments:
 
 It prints the IEEE 754 single-precision bit representation of both inputs, determines whether possible overflow may occur, and if so prints the minimum overflow threshold in both floating-point and bit format.
 
+## Build
+g++ -std=c++17 fp_overflow_checker.cpp -o fp_overflow_checker
+
 ## Instructions
 Run the program with
 ./fp_overflow_checker loop_bound loop_counter
