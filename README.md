@@ -16,10 +16,10 @@ It prints the IEEE 754 single-precision bit representation of both inputs, deter
 Run the program with
 ./fp_overflow_checker loop_bound loop_counter
 
-Example
+### Example
 ./fp_overflow_checker 1e+08 1.0
 
-Example Output
+### Example Output
 Loop bound:   0 10011001 01111101011110000100000
 Loop counter: 0 01111111 00000000000000000000000
 
