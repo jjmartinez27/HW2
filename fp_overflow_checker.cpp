@@ -16,6 +16,15 @@ std::string FormatBits(float value) {
     return s.substr(0, 1) + " " + s.substr(1, 8) + " " + s.substr(9, 23);
 }
 
+int GetExponentBits(float value) {
+    uint32_t bits = FloatToBits(value);
+    return static_cast<int>((bits >> 23) & 0xFF);
+}
+
+int GetUnbiasedExponent(float value) {
+    return GetExponentBits(value) - 127;
+}
+
 int main(int argc, char* argv[]) {
     if (argc != 3) {
         std::cout << std::endl;
@@ -30,6 +39,7 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Loop bound bits: " << FormatBits(loop_bound) << std::endl;
     std::cout << "Loop counter bits: " << FormatBits(loop_counter) << std::endl;
+    std::cout << "Loop counter exponent: " << GetUnbiasedExponent(loop_counter) << std::endl;
 
     return 0;
 }
