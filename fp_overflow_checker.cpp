@@ -55,11 +55,19 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Loop bound bits: " << FormatBits(loop_bound) << std::endl;
     std::cout << "Loop counter bits: " << FormatBits(loop_counter) << std::endl;
-    std::cout << "Loop counter exponent: " << GetUnbiasedExponent(loop_counter) << std::endl;
 
     float threshold = ComputeThreshold(loop_counter);
-    std::cout << "Threshold: " << threshold << std::endl;
-    std::cout << "Threshold bits: " << FormatBits(threshold) << std::endl;
+
+    if (loop_bound >= threshold) {
+        std::cout << std::endl;
+        std::cout << "Possible overflow" << std::endl;
+        std::cout << "Overflow threshold:" << std::endl;
+        std::cout << threshold << std::endl;
+        std::cout << FormatBits(threshold) << std::endl;
+    } else {
+        std::cout << std::endl;
+        std::cout << "No Possible Overflow" << std::endl;
+    }
 
     return 0;
 }
