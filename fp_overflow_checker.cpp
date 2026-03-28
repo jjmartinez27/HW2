@@ -27,8 +27,8 @@ int main(int argc, char* argv[]) {
     float loop_bound = std::stof(argv[1]);
     float loop_counter = std::stof(argv[2]);
 
-    std::cout << "Loop bound raw bits: " << FormatBits(loop_bound) << std::endl;
-    std::cout << "Loop counter raw bits: " << FormatBits(loop_counter) << std::endl;
+    std::cout << "Loop bound bits: " << FormatBits(loop_bound) << std::endl;
+    std::cout << "Loop counter bits: " << FormatBits(loop_counter) << std::endl;
 
 
     return 0;
