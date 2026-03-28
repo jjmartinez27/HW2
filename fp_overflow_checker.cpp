@@ -10,6 +10,12 @@ uint32_t FloatToBits(float value) {
     return bits;
 }
 
+float BitsToFloat(uint32_t bits) {
+    float value = 0.0f;
+    std::memcpy(&value, &bits, sizeof(float));
+    return value;
+}
+
 std::string FormatBits(float value) {
     std::bitset<32> bits(FloatToBits(value));
     std::string s = bits.to_string();
