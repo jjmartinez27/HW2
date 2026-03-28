@@ -12,8 +12,9 @@ uint32_t FloatToBits(float value) {
 int main(int argc, char* argv[]) {
     if (argc != 3) {
         std::cout << std::endl;
-        std::cout << "loop bound is a positive floating-point value" << std::endl;
-        std::cout << "loop counter is a positive floating-point value" << std::endl;
+        std::cout << "Please include 2 command line arguments" << std::endl;
+        std::cout << "1: Loop bound, a positive floating-point value" << std::endl;
+        std::cout << "2: Loop counter, a positive floating-point value" << std::endl;
         return 1;
     }
 
