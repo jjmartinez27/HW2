@@ -1,9 +1,9 @@
 # HW2
 
-##Author
+## Author
 Jaime Martinez
 
-##Description
+## Description
 This program checks for possible floating-point overflow/precision loss in loops that use single-precision floating-point values.
 
 The program takes two positive floating-point command-line arguments:
@@ -12,7 +12,7 @@ The program takes two positive floating-point command-line arguments:
 
 It prints the IEEE 754 single-precision bit representation of both inputs, determines whether possible overflow may occur, and if so prints the minimum overflow threshold in both floating-point and bit format.
 
-##Instructions
+## Instructions
 Run the program with
 ./fp_overflow_checker loop_bound loop_counter
 
